@@ -5,11 +5,12 @@
     *  
     * Script: 
     * Reorganize and refactor the code
-    * Add the image swapping to the view
-    * Setup proper defaults via inits
+    * ideas for next steps
+    * move get functions to Octupus
+    * figure out a better way to add the listner and track click events
     * 
     *  HTML:
-    *  Remove the default cat since the renderer now replaces it on startup. 
+    * 
     */
 
 
@@ -96,9 +97,6 @@ var view = {
 };
 
 octopus.init();
-
-
-
 
 
 // Increment the value only when an image is clicked
