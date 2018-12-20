@@ -9,25 +9,25 @@
     * Setup proper defaults via inits
     * 
     *  HTML:
-    *  Improve display
+    *  Remove the default cat since the renderer now replaces it on startup. 
     */
 
 
 // This is my data
 var model = {
 
-        init: function(){
-        let theKittehs = document.querySelector('#theKittehs');
-        let clickCountDisplay = document.querySelector('#count');
-        let clickCount = 0;
+    init: function(){
   
-        let kittehName1 = document.querySelector('#kittehName1');
-        let kittehName2 = document.querySelector('#kittehName2');
-        view.renderCatList(this.cats);        
+                
     },
     getCats: function(){
         return this.cats;
-    }, 
+    },
+    getFirstCat: function(){
+        // used to define the cat to start with on first load
+        return this.cats[0];
+
+    },
     cats: [{
         name: "Tigger",
         imageName: "tigger.jpg",
@@ -60,29 +60,42 @@ var model = {
 // This is the action
 var octopus = {
 
+init: function(){
+    model.init();
+    view.init();
+}
+
 };
 
 // This is the user view
 var view = {
 
-    renderCatList: function(catArr){
+    init: function(){
+        view.renderCatList();
+        view.renderCat(model.getFirstCat());
+
+
+
+    },
+    renderCatList: function(){
+        let catArr = model.getCats();
         let namesList = "";
-        let namesListContainer =  document.querySelector('#theKittehs');
-        console.log(catArr);   
-    
+        let namesListContainer =  document.querySelector('#theKittehs');    
         for (const cat of catArr) {
             namesList += `<li>${cat.name}</li>`;
         }
         console.log(namesList);
         namesListContainer.innerHTML = namesList;
     },
-    renderCat: function(){
+    renderCat: function(theCat){
+        document.querySelector('#kittehPic').src = "img/" + theCat.imageName;
+        document.querySelector('#kittehName1').innerHTML = `${theCat.name} has been clicked ${theCat.clicks} times`;
 
     }
 
 };
 
-model.init();
+octopus.init();
 
 
 
@@ -90,19 +103,17 @@ model.init();
 
 // Increment the value only when an image is clicked
 theKittehs.addEventListener('click', function(e){
-    
-    
+       
     if (e.target.tagName === "LI"){ 
         // loop through cats and see if the event's src element contains cat's the filename
         // if it does increment the count and update the display
         let cats = model.getCats();
         
         for (let i = 0; i < cats.length; i++){
-            console.log(cats[i].imageName);
             if(e.target.innerHTML.includes(cats[i].name) === true) {
-                cats[i].clicks += 1;             
-                document.querySelector('#kittehPic').src = "img/" + cats[i].imageName;
-                document.querySelector('#kittehName1').innerHTML = `${cats[i].name} has been clicked ${cats[i].clicks} times`;
+                cats[i].clicks += 1;   
+                view.renderCat(cats[i]);         
+                
             } else {
                 
             }
