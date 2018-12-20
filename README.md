@@ -26,6 +26,6 @@ It's suprisingly rewarding.
 
 ## Supporting materials credits
 
--- Tigger photo use courtesy of [poplinre](https://www.flickr.com/photos/poplinre/625069434/in/photostream/) 
--- Patchy photo use courtesy of [chewie](https://www.flickr.com/photos/chewie/2290467335)
--- Albert, Max and Tony photos use courtesy of [Michael Frank Franz](https://www.flickr.com/photos/nwater/)
+- Tigger photo use courtesy of [poplinre](https://www.flickr.com/photos/poplinre/625069434/in/photostream/) 
+- Patchy photo use courtesy of [chewie](https://www.flickr.com/photos/chewie/2290467335)
+- Albert, Max and Tony photos use courtesy of [Michael Frank Franz](https://www.flickr.com/photos/nwater/)
